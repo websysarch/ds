@@ -54,15 +54,4 @@ export class BinarySearchTreeNode<T> {
     return this.#left === null && this.#right === null
   }
 
-  get hasParent(): boolean {
-    return this.#parent !== null
-  }
-
-  get hasLeftChild(): boolean {
-    return this.left !== null
-  }
-
-  get hasRightChild() {
-    return this.#right !== null
-  }
 }
