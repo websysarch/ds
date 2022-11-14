@@ -10,19 +10,19 @@ beforeEach(() => {
 describe('Initializations', () => {
   test('left with Invalid value', () => {
     expect(() => {
-      node.left = 2 as unknown as any
+      node.left = 2 as never
     }).toThrow()
   })
 
   test('right with Invalid value', () => {
     expect(() => {
-      node.right = 2 as unknown as any
+      node.right = 2 as never
     }).toThrow()
   })
 
   test('left with Invalid value', () => {
     expect(() => {
-      node.parent = 2 as unknown as any
+      node.parent = 2 as never
     }).toThrow()
   })
 })

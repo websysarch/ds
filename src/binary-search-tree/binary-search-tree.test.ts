@@ -109,4 +109,15 @@ describe('Traversal', () => {
     nonEmptyBST.postOrderTraversal(e => arr.push(e))
     expect(arr.join(',')).toBe([2, 3, 4, 8, 11, 10, 9, 7].join(','))
   })
+
+  test('Empty: Breadth First', () => {
+    const arr: number[] = []
+    emptyBST.breadthFirstTraversal(e => arr.push(e))
+    expect(arr.join(',')).toBe([].join(','))
+  })
+  test('NonEmpty: Breadth First', () => {
+    const arr: number[] = []
+    nonEmptyBST.breadthFirstTraversal(e => arr.push(e))
+    expect(arr.join(',')).toBe([7, 4, 9, 3, 8, 10, 2, 11].join(','))
+  })
 })

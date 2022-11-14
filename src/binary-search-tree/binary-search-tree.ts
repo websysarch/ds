@@ -1,3 +1,4 @@
+import { Queue } from '../queue'
 import { BinarySearchTreeNode } from './binary-search-tree-node'
 
 type CompareFunction<T> = (a: T, b: T) => number
@@ -142,12 +143,24 @@ export class BinarySearchTree<T> {
     }
   }
 
+  breadthFirstTraversal(cb: TraversalCb<T>): void {
+    if (!this.#root) return undefined
+    const queue = new Queue<BinarySearchTreeNode<T>>()
+    let current: BinarySearchTreeNode<T> | null | undefined = this.#root
+    while (current) {
+      cb(current.data)
+      if (current.left) queue.enqueue(current.left)
+      if (current.right) queue.enqueue(current.right)
+      current = queue.dequeue()
+    }
+  }
+
   min(): T | null {
     if (this.#root === null) return null
     return this.#minNode(this.#root).data
   }
   #minNode(node: BinarySearchTreeNode<T>): BinarySearchTreeNode<T> {
-    if (node.left) return this.#minNode(node.left)
+    while (node.left) node = node.left
     return node
   }
 
@@ -156,7 +169,7 @@ export class BinarySearchTree<T> {
     return this.#maxNode(this.#root).data
   }
   #maxNode(node: BinarySearchTreeNode<T>): BinarySearchTreeNode<T> {
-    if (node.right) return this.#maxNode(node.right)
+    while (node.right) node = node.right
     return node
   }
 
