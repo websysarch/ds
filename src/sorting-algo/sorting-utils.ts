@@ -11,3 +11,11 @@ export function swapNumber(array: number[], swapIdx1: number, swapIdx2: number):
     array[swapIdx2] = temp
   }
 }
+
+export type Comparator<T> = (a: T, b: T) => number
+
+export const numberComparator: Comparator<number> = (a, b) => {
+  if (a === b) return 0
+  if (a > b) return 1
+  return -1
+}
