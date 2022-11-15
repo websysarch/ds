@@ -1,7 +1,7 @@
 export function swapNumber(array: number[], swapIdx1: number, swapIdx2: number): void {
   if (
-    swapIdx1 > 0 &&
-    swapIdx2 > 0 &&
+    swapIdx1 >= 0 &&
+    swapIdx2 >= 0 &&
     swapIdx1 < array.length &&
     swapIdx2 < array.length &&
     swapIdx1 !== swapIdx2

@@ -1,5 +1,6 @@
 import { describe, test, expect, beforeEach } from '@jest/globals'
 import { bubbleSort } from './bubble-sort'
+import { countingSort } from './counting-sort'
 import { insertionSort } from './insertion-sort'
 import { mergeSort } from './merge-sort'
 import { quickSort } from './quick-sort'
@@ -19,6 +20,7 @@ const testCases: [string, typeof bubbleSort][] = [
   ['Merge', mergeSort],
   ['Quick', quickSort],
   ['Selection', selectionSort],
+  ['Counting', countingSort],
 ]
 
 describe.each(testCases)('%s Sort', (_, sortingFunction) => {
